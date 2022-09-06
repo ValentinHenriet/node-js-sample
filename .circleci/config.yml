@@ -32,7 +32,12 @@ jobs:
           name: "running image"
           command: | 
             docker run app 
+
+      - run:
+          name: "test container"
+          command: docker run --network container:app --name test_curl appropriate/curl --retry 10 --retry-connrefused http://localhost:8080/
       
+  
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
