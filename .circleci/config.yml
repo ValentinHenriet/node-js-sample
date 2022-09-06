@@ -23,8 +23,9 @@ jobs:
       - image: docker:latest
     steps:
       - checkout
+      - setup_remote_docker
       - run:
-          docker build -t nodejssample .
+          docker build . -t nodejssample 
           docker run nodejssample
 
 # Invoke jobs via workflows
