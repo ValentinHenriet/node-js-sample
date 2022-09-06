@@ -28,7 +28,10 @@ jobs:
           name: "building image"
           command: | 
             docker build . -t app
-           
+      - run: 
+          name: "running image"
+          command: | 
+            docker run --name app   
       
 
 # Invoke jobs via workflows
